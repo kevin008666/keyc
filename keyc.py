@@ -34,7 +34,7 @@ def creatcsr():
         print("创建ip.csr文件失败")
 
 def creatv3():
-    v3="cat > v3.ext << EOF\nauthorityKeyIdentifier=keyid,issuer\nbasicConstraints=CA:FALSE\nkeyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment\nextendedKeyUsage = serverAuth\nsubjectAltName = @alt_names\n[alt_names]\nDNS.1="+domain+"\nIP.1=127.0.0.1\nIP.2="+domain+"\nEOF"
+    v3="cat > v3.ext << EOF\nauthorityKeyIdentifier=keyid,issuer\nbasicConstraints=CA:FALSE\nkeyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment\nextendedKeyUsage = serverAuth\nsubjectAltName = @alt_names\n[alt_names]\nDNS.1="+domain+"\nDNS.2=localhost"+"\nIP.1=127.0.0.1\nIP.2="+domain+"\nEOF"
     try:
         os.system(v3)
         print("配置文件创建成功")
